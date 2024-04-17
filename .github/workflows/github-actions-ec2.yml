@@ -36,3 +36,16 @@ jobs:
             sudo systemctl enable apache2
             cd home
             sudo mv * /var/www/html
+
+      - name: Send Email Notification
+        if: failure()
+        uses: dawidd6/action-send-mail@v2
+        with:
+          server_address: smtp.example.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: Build Failed
+          body: |
+            
+
