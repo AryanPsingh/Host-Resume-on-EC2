@@ -3,8 +3,8 @@ name: Push-to-EC2
 # Trigger deployment only on push to main branch
 on:
   push:
-    branches:main
-      - 
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -45,7 +45,6 @@ jobs:
           server_port: 587
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: Build Failed
+          subject: Build Failed 
           body: |
-            
-
+            The GitHub Actions workflow failed. Please check the workflow run for details.
